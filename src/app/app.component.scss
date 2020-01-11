@@ -1,0 +1,109 @@
+@import "../assets/styles/variables";
+
+:host {
+  height: 812px;
+  width: 375px;
+  background: $background-color;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: rem-calc(118);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem-calc(68) rem-calc(25) rem-calc(20) rem-calc(25);
+  position: relative;
+
+  .btn-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: rem-calc(18);
+    left: rem-calc(25);
+    top: rem-calc(74);
+    margin: auto;
+    position: absolute;
+    cursor: pointer;
+
+    &.green {
+      color: $primary-color;
+    }
+
+    &.blue {
+      color: $alternative-color;
+    }
+
+    &.pink {
+      color: $secondary-color;
+    }
+  }
+
+  svg {
+    width: rem-calc(98);
+    height: rem-calc(30);
+
+    &.green {
+      * {
+        fill: $primary-color;
+      }
+    }
+
+    &.blue {
+      * {
+        fill: $alternative-color;
+      }
+    }
+
+    &.pink {
+      * {
+        fill: $secondary-color;
+      }
+    }
+    
+    * {
+      fill: $foreground-color;
+    }
+  }
+}
+
+main {
+  flex: 1;
+  height: rem-calc(624);
+}
+
+nav {
+  height: rem-calc(70);
+  background-color: $primary-color;
+  padding: 0 0 rem-calc(34) 0;
+
+  .nav {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    li {
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: rem-calc(18);
+        height: rem-calc(18);
+        font-size: rem-calc(18);
+        color: $link-color;
+
+        &.active {
+          color: $link-active-color;
+        }
+      }
+    }
+  }
+}

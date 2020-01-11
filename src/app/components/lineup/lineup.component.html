@@ -1,0 +1,7 @@
+<ng-scrollbar>
+  <div class="lineup">
+    <ng-container *ngFor="let band of lineup; trackBy: trackByFn">
+      <a [routerLink]="['/band', band.id]" class="band" [ngStyle]="{ backgroundImage: getImageUrlForStyle(band.logo) }"></a>
+    </ng-container>
+  </div>
+</ng-scrollbar>

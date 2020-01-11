@@ -1,0 +1,20 @@
+@import "../../../assets/styles/variables";
+
+:host {
+  height: rem-calc(624);
+}
+
+.lineup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .band {
+    width: rem-calc(185);
+    height: rem-calc(185);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: rem-calc(2.5) 0;
+  }
+}

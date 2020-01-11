@@ -1,0 +1,18 @@
+<div class="schedule-container">
+  <div class="day-selector">
+    <select [(ngModel)]="selectedDay">
+      <option *ngFor="let day of (festivalDays$ | async); let i = index;" [selected]="i === 0" [value]="day">
+        {{ day | date:'dd. MM. yyyy.' }}
+      </option>
+    </select>
+  </div>
+  <div class="location-selector">
+    <ng-scrollbar track="horizontal">
+      <div class="locations">
+        <div *ngFor="let location of locations">
+          <button (click)="loadLocationSchedule(location)" [ngClass]="{'active': activeLocation == location}">{{ location }}</button>
+        </div>
+      </div>
+    </ng-scrollbar>
+  </div>
+</div>

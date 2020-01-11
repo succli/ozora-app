@@ -1,0 +1,10 @@
+<ng-scrollbar>
+  <div *ngIf="band$ | async as band" class="band">
+    <p>
+      <img [src]="'assets/img/bands/' + band.logo" alt="band.name">
+      {{ band.description }}
+    </p>
+    <p><span class="text-primary">When:</span> {{ band.datetime | date:'MM. dd. yyyy, HH:mm' }}</p>
+    <p><span class="text-alternative">Where:</span> {{ band.location }}</p>
+   </div>
+</ng-scrollbar>

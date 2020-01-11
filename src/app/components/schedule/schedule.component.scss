@@ -1,0 +1,74 @@
+@import "../../../assets/styles/variables";
+
+.schedule-container {
+  .day-selector {
+    select {
+      width: 100%;
+      height: rem-calc(35);
+      line-height: rem-calc(35);
+      font-family: $font-family;
+      font-size: rem-calc(20);
+      font-weight: 700;
+      color: $alternative-color;
+      border: none;
+      background: $foreground-color;
+      appearance: none;
+      padding: 0 rem-calc(25);
+
+      &:focus {
+        outline: none;
+      }
+
+      option {
+        font-weight: 400;
+        line-height: rem-calc(23);
+        font-size: rem-calc(14);
+      }
+    }
+  }
+
+  .location-selector {
+    height: rem-calc(39);
+
+    ::ng-deep {
+      scrollbar-x {
+        visibility: hidden;
+      }
+    }
+
+    .locations {
+      display: flex;
+      flex-direction: row;
+
+      > div {
+        &:last-of-type {
+          button {
+            border-right-width: 0;
+          }
+        }
+      }
+
+      button {
+        font-family: $font-family;
+        background: $secondary-color;
+        border: none;
+        border-right: 1px solid $background-color;
+        min-width: rem-calc(143);
+        height: rem-calc(39);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: rem-calc(16);
+        line-height: rem-calc(19);
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $foreground-color;
+        padding: rem-calc(5) rem-calc(15);
+
+        &.active {
+          background: $primary-color;
+        }
+      }
+    }
+  }
+}

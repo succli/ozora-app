@@ -1,0 +1,18 @@
+@import "../../../assets/styles/variables";
+
+:host {
+  height: rem-calc(624);
+}
+
+.band {
+  padding: 0 rem-calc(25);
+
+  p {
+    img {
+      float: left;
+      width: rem-calc(185);
+      height: auto;
+      margin: 0 rem-calc(11) rem-calc(11) 0;
+    }
+  }
+}
