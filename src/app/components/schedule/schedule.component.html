@@ -1,6 +1,6 @@
 <div class="schedule-container">
   <div class="day-selector">
-    <select [(ngModel)]="selectedDay">
+    <select [ngModel]="selectedDay" (ngModelChange)="dayChanged($event)">
       <option *ngFor="let day of (festivalDays$ | async); let i = index;" [selected]="i === 0" [value]="day">
         {{ day | date:'dd. MM. yyyy.' }}
       </option>
@@ -12,6 +12,20 @@
         <div *ngFor="let location of locations">
           <button (click)="loadLocationSchedule(location)" [ngClass]="{'active': activeLocation == location}">{{ location }}</button>
         </div>
+      </div>
+    </ng-scrollbar>
+  </div>
+  <div class="schedule">
+    <ng-scrollbar>
+      <div *ngIf="isOpeningCeremony" class="band">
+        <div class="text-alternative time">20:00</div>
+        <div class="name">Opening Ceremony</div>
+      </div>
+      <div *ngFor="let band of (schedule$ | async)" class="band">
+        <div class="text-alternative time">
+            {{ band.datetime | date:'HH:mm' }}
+        </div>
+        <a [routerLink]="['/band', band.id]" class="name">{{ band.name }}</a>
       </div>
     </ng-scrollbar>
   </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService, ScheduleService } from '@app/services';
-import { FestivalLocation } from '@app/helpers';
+import { FestivalLocation, BandEvent } from '@app/helpers';
 import { BehaviorSubject } from 'rxjs';
 import { head as _head } from 'lodash';
 
@@ -14,6 +14,13 @@ export class ScheduleComponent implements OnInit {
   festivalDays$ = new BehaviorSubject<Array<Date>>([]);
   selectedDay: Date;
   activeLocation = FestivalLocation.main;
+  schedule$ = new BehaviorSubject<Array<BandEvent>>([]);
+
+  get isOpeningCeremony(): boolean {
+    const firstDay = new Date('2020-06-20');
+    return this.selectedDay.toDateString() === firstDay.toDateString() &&
+      this.activeLocation === FestivalLocation.main;
+  }
 
   constructor(private locationService: LocationService,
               private scheduleService: ScheduleService) {}
@@ -29,10 +36,24 @@ export class ScheduleComponent implements OnInit {
 
     this.festivalDays$.next(this.getFestivalDays(festivalDays));
     this.selectedDay = _head(this.festivalDays$.getValue());
+    this.getSchedule();
   }
 
   loadLocationSchedule(location: FestivalLocation) {
     this.activeLocation = location;
+
+    this.getSchedule();
+  }
+
+  dayChanged(date: Date) {
+    this.selectedDay = new Date(date);
+    this.getSchedule(date);
+  }
+
+  private getSchedule(date?: Date): void {
+    const selectedDay = new Date(date || this.selectedDay);
+    const schedule = this.scheduleService.getScheduleByDay(selectedDay);
+    this.schedule$.next(schedule);
   }
 
   private getFestivalDays({ from, to }: { from: Date, to: Date }): Array<Date> {

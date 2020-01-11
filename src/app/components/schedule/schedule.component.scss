@@ -1,6 +1,12 @@
 @import "../../../assets/styles/variables";
 
+:host {
+  height: rem-calc(624);
+}
+
 .schedule-container {
+  height: rem-calc(624);
+
   .day-selector {
     select {
       width: 100%;
@@ -68,6 +74,36 @@
         &.active {
           background: $primary-color;
         }
+      }
+    }
+  }
+
+  .schedule {
+    display: flex;
+    flex-direction: column;
+    height: rem-calc(550);
+
+    .band {
+      display: flex;
+      align-items: flex-start;
+      padding: rem-calc(15) rem-calc(25);
+      background: $schedule-background-color;
+      margin-bottom: rem-calc(2);
+      min-height: 58px;
+      
+      .time {
+        flex: 1;
+        font-size: rem-calc(20);
+        font-weight: 700;
+        line-height: rem-calc(23);
+      }
+
+      .name {
+        flex: 3;
+        font-size: rem-calc(20);
+        font-weight: 700;
+        line-height: rem-calc(23);
+        text-transform: uppercase;
       }
     }
   }

@@ -16,7 +16,7 @@ export class ScheduleService {
       .map(a => a.value);
 
     for (let i = 0; i < length; i ++) {
-      lineup[i].datetime = DATES[0];
+      lineup[i].datetime = DATES[i];
     }
 
     this.schedule$.next(lineup);
@@ -35,5 +35,10 @@ export class ScheduleService {
     const datetime = new Date(bandEvent.datetime);
     datetime.setHours(0, 0, 0, 0);
     return datetime;
+  }
+
+  getScheduleByDay(date: Date) {
+    return this.schedule$.getValue().filter((band: BandEvent) =>
+      band.datetime.toDateString() === date.toDateString());
   }
 }
