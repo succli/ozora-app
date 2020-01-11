@@ -16,6 +16,14 @@ header {
   padding: rem-calc(68) rem-calc(25) rem-calc(20) rem-calc(25);
   position: relative;
 
+  &.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
   .btn-back {
     display: flex;
     justify-content: center;

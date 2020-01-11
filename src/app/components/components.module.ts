@@ -10,6 +10,7 @@ import { BandComponent } from './band/band.component';
 import { InfoComponent } from './info/info.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ServicesModule } from '@app/services';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ServicesModule } from '@app/services';
     LineupComponent,
     BandComponent,
     InfoComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,

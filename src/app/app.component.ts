@@ -13,6 +13,7 @@ import { Location } from '@angular/common';
 export class AppComponent extends BaseComponent implements OnInit {
   isLandingPage$ = new Subject<boolean>();
   showBackBtn$ = new Subject<boolean>();
+  isMapPage$ = new Subject<boolean>();
   logoColor = '';
   btnColor = '';
   private colors: string[] = ['green', 'blue', 'pink'];
@@ -31,6 +32,7 @@ export class AppComponent extends BaseComponent implements OnInit {
       .subscribe((event: NavigationEnd) => {
         this.isLandingPage$.next(event.url === '/');
         this.showBackBtn$.next(!(event.url === '/' || event.url === '/navigation'));
+        this.isMapPage$.next(event.url === '/map');
       });
 
     this.logoColor = this.colors[Math.floor(Math.random() * 3)];

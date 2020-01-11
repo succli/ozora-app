@@ -16,18 +16,56 @@
     padding: 0;
 
     li {
-      border-bottom: 2px solid $background-color;
+      margin-bottom: rem-calc(2);
 
       a {
+        position: relative;
         display: flex;
         width: 100%;
-        align-items: center;
-        justify-content: center;
         text-transform: uppercase;
         background: $btn-background-color;
         color: $secondary-color;
         height: rem-calc(98);
         font-weight: 700;
+
+        &:hover,
+        &:focus {
+          color: $foreground-color;
+          outline: none;
+
+          span {
+            background-color: rgba($schedule-background-color, .1);
+          }
+
+          svg {
+            opacity: 1;
+          }
+        }
+
+        span {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          display: flex;          
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+        }
+
+        svg {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          z-index: 1;
+          opacity: 0;
+          translate: opacity .3s ease-in-out;
+        }
       }
     }
   }

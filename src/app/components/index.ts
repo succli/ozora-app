@@ -5,3 +5,4 @@ export { LineupComponent } from './lineup/lineup.component';
 export { BandComponent } from './band/band.component';
 export { InfoComponent } from './info/info.component';
 export { ScheduleComponent } from './schedule/schedule.component';
+export { MapComponent } from './map/map.component';

@@ -6,7 +6,8 @@ import {
   LineupComponent,
   BandComponent,
   InfoComponent,
-  ScheduleComponent
+  ScheduleComponent,
+  MapComponent
 } from '@app/components';
 
 
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'schedule',
     component: ScheduleComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
   }
 ];
 

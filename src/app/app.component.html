@@ -1,4 +1,4 @@
-<header *ngIf="!(isLandingPage$ | async)">
+<header *ngIf="!(isLandingPage$ | async)" [ngClass]="{ 'header-fixed': (isMapPage$ | async) }">
   <ng-container *ngIf="showBackBtn$ | async">
     <a (click)="back()" class="btn-back" [ngClass]="[btnColor]">
       <span class="icon-caret-left"></span>
