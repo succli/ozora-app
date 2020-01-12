@@ -1,12 +1,19 @@
 @import "../../../assets/styles/variables";
 
-canvas {
+svg {
+	width: 100%;
+	height: 100%;
+}
+
+.map {
 	width: 100%;
 	height: 100%;
 }
 
 .map-container {
 	position: relative;
+	overflow: hidden;
+	height: rem-calc(742);
 
 	.zoom-control {
 		position: absolute;
