@@ -17,12 +17,18 @@ svg {
 
 	.zoom-control {
 		position: absolute;
-		top: rem-calc(700);
+		bottom: rem-calc(40);
 		right: rem-calc(25);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: rem-calc(70);
+		z-index: 5;
+		translate: all .3s ease-in-out;
+
+		&.infopanel-opened {
+			bottom: rem-calc(90);
+		}
 
 		button {
 			width: rem-calc(20);
@@ -43,6 +49,30 @@ svg {
 			&.zoom-out {
 				background-image: url('assets/img/minus.svg');
 			}
+		}
+	}
+
+	.location-info {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		height: rem-calc(50);
+		padding: rem-calc(5) rem-calc(35);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: rem-calc(20);
+		font-weight: bold;
+		color: $alternative-color;
+		background-color: $foreground-color;
+		text-transform: uppercase;
+		opacity: 0;
+		translate: all .3s ease-in-out;
+
+		&.show {
+			opacity: 1;
 		}
 	}
 }

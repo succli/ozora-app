@@ -16,7 +16,7 @@ export enum FestivalLocation {
   mirador = 'Mirador',
   artibarn = 'Artibarn',
   pyramid = 'Pyramid',
-  healion = 'Helion'
+  healion = 'Healion'
 }
 
 export const LINEUP: Array<BandEvent> = [
