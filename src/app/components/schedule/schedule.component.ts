@@ -52,7 +52,7 @@ export class ScheduleComponent implements OnInit {
 
   private getSchedule(date?: Date): void {
     const selectedDay = new Date(date || this.selectedDay);
-    const schedule = this.scheduleService.getScheduleByDay(selectedDay);
+    const schedule = this.scheduleService.filterSchedule(selectedDay, this.activeLocation);
     this.schedule$.next(schedule);
   }
 

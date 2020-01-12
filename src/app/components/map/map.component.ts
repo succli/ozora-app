@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
-import { Subject, interval, BehaviorSubject } from 'rxjs';
-import { takeUntil, takeWhile } from 'rxjs/operators';
-import { FestivalLocation } from '@app/helpers';
+import { interval, BehaviorSubject } from 'rxjs';
+import { takeWhile } from 'rxjs/operators';
 
 interface CTX extends CanvasRenderingContext2D {
   transformedPoint?: (x: number, y: number) => DOMPoint;
@@ -14,7 +13,7 @@ interface CTX extends CanvasRenderingContext2D {
 })
 export class MapComponent implements OnInit, OnDestroy {
   @ViewChild('map', { static: true }) map: ElementRef<HTMLDivElement>;
-  selectedLocation: FestivalLocation;
+  selectedLocation: string;
   private currentScale = 1;
   private zoomEnd$ = new BehaviorSubject<boolean>(false);
   private lastCoords: {x: number, y: number};
@@ -77,7 +76,7 @@ export class MapComponent implements OnInit, OnDestroy {
     this.dragStart = undefined;
   }
 
-  openInfo(location: FestivalLocation): void {
+  openInfo(location: string): void {
     this.selectedLocation = location;
   }
   
