@@ -1,1 +1,10 @@
-<canvas #canvas></canvas>
+<div class="map-container">
+  <canvas #canvas
+          (touchstart)="onTouchStart($event)"
+          (touchend)="onTouchEnd($event)"
+          (touchmove)="onTouchMove($event)"></canvas>
+  <div class="zoom-control">
+    <button class="zoom-out" (click)="zoom(-1)"></button>
+    <button class="zoom-in" (click)="zoom(1)"></button>
+  </div>
+</div>
