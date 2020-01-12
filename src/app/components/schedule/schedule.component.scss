@@ -8,6 +8,18 @@
   height: rem-calc(624);
 
   .day-selector {
+    position: relative;
+
+    .icon-caret-left {
+      position: absolute;
+      right: rem-calc(25);
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      transform: rotate(-90deg);
+      color: $alternative-color;
+    }
+
     select {
       width: 100%;
       height: rem-calc(35);
@@ -23,6 +35,10 @@
 
       &:focus {
         outline: none;
+
+        + .icon-caret-left {
+          transform: rotate(90deg);
+        }
       }
 
       option {

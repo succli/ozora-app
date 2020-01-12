@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
 import * as moment from 'moment';
 import { BehaviorSubject, timer, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
